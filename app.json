@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "RotaryApk",
+    "slug": "RotaryApk",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "RotaryApk"
+}
