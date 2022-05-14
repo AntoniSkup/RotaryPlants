@@ -12,19 +12,21 @@ export default function MyTabs() {
     return (
         <Tab.Navigator
         tabBarOptions={{
-            activeTintColor:'#17458f',
+            activeTintColor:'white',
             inactiveTintColor:"grey",
             showLabel:false,
             style:{
                 height:70,
-                borderTopRightRadius:30,
-                borderTopLeftRadius:30,
+                backgroundColor:'#17458f'
+                // borderTopRightRadius:30,
+                // borderTopLeftRadius:30,
                 
             }
         }}
         >
             <Tab.Screen name="Map" component={Map} 
                 options={{
+                    
                     
                     tabBarIcon: ({ color, size }) => (
                         <FontAwesome name="map" color={color} size={25} />

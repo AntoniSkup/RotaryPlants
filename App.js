@@ -1,10 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigation  from './navigation'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Firebase from "@react-native-firebase/app"
+import { LogBox } from 'react-native'
+
+
+LogBox.ignoreAllLogs();//Ignore all log notifications
+
 
 export default function App() {
+
+  React.useEffect(() => {
+    if (!Firebase.apps.length) {
+      Firebase.initializeApp(this)
+    }else {
+        Firebase.app(); // if already initialized, use that one
+    }
+  }, []);
+  
+
   return (
     <SafeAreaProvider >
       <Navigation/>
