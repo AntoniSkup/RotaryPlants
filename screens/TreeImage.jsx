@@ -64,10 +64,10 @@ export default function TreeImage() {
 
                     <View style={{flexDirection:'row'}}>
                         <Text style={styles.textInfo}>
-                            Radius:
+                            {/* Radius: */}
                         </Text>
                         <Text style={styles.textNum}>
-                            6
+                            {/* 6 */}
                         </Text>
                     </View>
                 </View>
@@ -79,12 +79,12 @@ export default function TreeImage() {
                         
                     </View>
                     <Text style={styles.textNum}>
-                        Michael Skup
+                        {data?.president}
                     </Text>
                 </View>
             </View>
 
-            <TouchableOpacity onPress={()=> alert("Featre coming soon!")} style={styles.button}>
+            <TouchableOpacity onPress={()=> alert(data?.clubEmail)} style={styles.button}>
                 <Text style={styles.btnTxt}>Contact</Text>
             </TouchableOpacity>
             

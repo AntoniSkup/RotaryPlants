@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , TextInput,Picker, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View , TextInput,Picker, TouchableOpacity, Image, Dimensions} from 'react-native'
 import React from 'react'
 import BackBtn from '../components/BackBtn'
 import CountryPicker , { DARK_THEME } from 'react-native-country-picker-modal'
@@ -6,12 +6,14 @@ import { registerClub } from '../actions/queries'
 import { useNavigation } from '@react-navigation/native'
 import uuid from "uuid";
 
+const {width,height} = Dimensions.get("window")
 
 export default function NewClub() {
     
 
     const [ clubName, setClubName ] = React.useState('')
     const [ clubEmail, setClubEmail ] = React.useState('')
+    const [ clubPresident, setClubPresident ] = React.useState('')
     const [ country, setCountry ] = React.useState('Poland')
     const [ modalVisible, setModalVisible ] = React.useState(false)
     const [withAlphaFilter, setWithAlphaFilter] = React.useState(true)
@@ -26,12 +28,13 @@ export default function NewClub() {
 
     const register = async () => {
         try {
-            if (clubName !== '' && clubEmail !== ''){
+            if (clubName !== '' && clubEmail !== '' && clubPresident !== ''){
                 const id = uuid.v4()
                 let data = {
                     country: country,
                     name:clubName,
                     email:clubEmail,
+                    president:clubPresident,
                     trees:0,
                     uid:id
                 }
@@ -49,13 +52,18 @@ export default function NewClub() {
 
 
     return (
-        <View style={{flex:1}}>
+        <View style={{flex:1, backgroundColor:'rgb(5,160,5)'}}>
+            <Image 
+            source={require('../assets/background.png')} 
+            style={{width:width,height:height+50, position:'absolute',top:0, left:0}}
+            />
             <BackBtn/>
             <View style={styles.container} >
                 <Text style={styles.titleTxt}>Register club</Text>
                 
             <TouchableOpacity onPress={()=> setModalVisible(true)} style={[styles.countryBtn, styles.shadow, styles.center]}>
                 <CountryPicker
+                
                     withEmoji={true}
                         {...{
                         withAlphaFilter,
@@ -72,7 +80,10 @@ export default function NewClub() {
                 textAlign={'center'}
                 onChangeText={(input)=>setClubName(input)}
                 placeholder="Club Name"
+                color="white"
                 fontSize={18}
+                placeholderTextColor={'white'}
+
                 
                 />
                 <TextInput 
@@ -82,6 +93,21 @@ export default function NewClub() {
                 onChangeText={(input)=>setClubEmail(input)}
                 placeholder="Representative Email"
                 fontSize={18}
+                color="white"
+                placeholderTextColor={'white'}
+
+                />
+                <TextInput 
+                backgroundColor={"rgba(0,0,0,0.1)"} 
+                style={{width:'60%', height:70, borderRadius:15, margin:10}} 
+                textAlign={'center'}
+                onChangeText={(input)=>setClubPresident(input)}
+                placeholder="Club President"
+                fontSize={18}
+                color="white"
+                placeholderTextColor={'white'}
+
+
                 />
                 
                 <TouchableOpacity 
@@ -104,8 +130,8 @@ const styles = StyleSheet.create({
 
     },
     countryBtn:{
-        width:200,
-        height:60,
+        width:'60%', 
+        height:70,
         backgroundColor:'white',
         marginTop:15,
         marginBottom:5,
@@ -133,6 +159,7 @@ const styles = StyleSheet.create({
         marginBottom:40,
         fontSize:24,
         fontWeight:"bold",
+        color:'white'
         
     },
 

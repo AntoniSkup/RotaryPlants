@@ -18,7 +18,8 @@ import {  uploadPlantation } from '../actions/queries'
 
 
 
-const width = Dimensions.get("window").width
+const {width,height} = Dimensions.get("window")
+
 //image= 1200 x 630
 
 export default function Plant() {
@@ -51,6 +52,7 @@ export default function Plant() {
                 country:country,
                 clubName:selectedClub.name,
                 clubID:selectedClub.uid,
+                clubEmail:selectedClub.email,
                 latitude: currentLatitude,
                 longitude:currentLongitude,
                 trees: parseInt(numberOfTrees),
@@ -59,7 +61,7 @@ export default function Plant() {
             uploadPlantation(allData)
             updateClubData(allData)
             navigation.goBack()
-            alert("Success!")
+            alert("Success! Refresh the app to see your plant")
         }else{
             alert("You forgot to upload the picture!")
         }
@@ -195,6 +197,10 @@ export default function Plant() {
 
     return (
         <View style={styles.container}>
+            {/* <Image 
+            source={require('../assets/background.png')} 
+            style={{width:width,height:height+50, position:'absolute',top:0, left:0}}
+            /> */}
             <Btn/>
             <TouchableOpacity onPress={()=> openLibrary()}>
                 {
@@ -214,6 +220,7 @@ export default function Plant() {
                         source={require('../assets/planting.jpg')} 
                         style={styles.dim_image}
                         />
+                        
                         <Image 
                         source={require('../assets/upload.png')} 
                         style={{  width:100, height:100, position:'absolute', zIndex:10}}
@@ -266,7 +273,7 @@ export default function Plant() {
                 color={'#17458f'}
                 />
             </View>
-                        <Text>You are here {currentLongitude}</Text>
+            
             <TouchableOpacity 
             style={styles.button}
             onPress={()=> uploadPlant()}>

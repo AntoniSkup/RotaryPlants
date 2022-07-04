@@ -27,6 +27,10 @@ export default function Board() {
 
     return (
         <View style={styles.container}>
+            {/* <Image 
+            source={require('../../assets/background.png')} 
+            style={{width:width,height:height+50, position:'absolute',top:0, left:0}}
+            /> */}
             <View style={styles.topContainer}>
                 <Text style={styles.titleText}>Leaderboard</Text>
                 <View style={{flexDirection:'row', marginBottom:5}}>
@@ -89,6 +93,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         flex:1,
+        backgroundColor:'rgb(5,160,5)'
     },
     clubName:{
         color:"#17458f",
@@ -111,7 +116,8 @@ const styles = StyleSheet.create({
     topContainer:{
         height:170, 
         width:'100%',
-        backgroundColor:'#17458f',
+        backgroundColor:'rgb(5,160,5)',
+        // backgroundColor:'#17458f',
         alignItems:'center',
         justifyContent:'center',
         marginBottom:10,
