@@ -1,5 +1,6 @@
 {
   "main": "index.js",
+  "version": "1.0.1",
   "scripts": {
     "android": "expo run:android",
     "ios": "expo run:ios",
@@ -15,6 +16,9 @@
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
     "all": "^0.0.0",
+    "appcenter": "4.4.4",
+    "appcenter-analytics": "4.4.4",
+    "appcenter-crashes": "4.4.4",
     "expo": "~43.0.0",
     "expo-image-manipulator": "~10.1.2",
     "expo-image-picker": "~11.0.3",

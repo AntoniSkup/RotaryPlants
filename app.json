@@ -1,8 +1,7 @@
 {
   "expo": {
-    "name": "RotaryApk",
-    "slug": "RotaryApk",
-    "version": "1.0.0",
+    "name": "Rotary",
+    "slug": "Rotary",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -15,7 +14,14 @@
           "isAccessMediaLocationEnabled": true
         }
       ]
-    ]
+    ],
+    "android": {
+      "versionCode": 3
+    },
+    "ios": {
+      "buildNumber": "3"
+    },
+    "version": "1.0.1"
   },
-  "name": "RotaryApk"
+  "name": "Rotary"
 }
