@@ -44,7 +44,7 @@ export default function Map() {
                     // <TouchableOpacity style={{backgroundColor:"red"}}>
                         <Marker 
                             onPress={()=>navigation.navigate('TreeImage', {data:marker})}
-                            style={{flex:1}}
+                            style={{height:50, width:50}}
                             key={index}
                             coordinate={{latitude: marker.latitude, longitude : marker.longitude}}
                             title={marker.title}
