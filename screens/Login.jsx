@@ -25,19 +25,19 @@ export default function Login() {
     }
     return (
         <View style={styles.container}>
-            <Image source={require('../assets/Rotary_int_logo.png')} style={styles.logoImage}/>
-            
+            <Image source={require('../assets/Rotary_int_logo.png')} resizeMode='cover' style={styles.logoImage}/>
         </View>
     )
 }
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems:'center'
+        alignItems:'center',
+        justifyContent: 'center',
     },
     logoImage: {
         width:imageWidth, 
         height:imageHeight, 
-        margin:20
+        margin:20,
     }
 })

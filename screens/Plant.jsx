@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, Dimensions, PixelRatio, Switch, Picker, TextInput, Permission, PermissionsAndroid, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions, PixelRatio, Switch, Picker, TextInput, Permission, PermissionsAndroid, TouchableOpacity, Platform} from 'react-native'
 import CountryPicker , { DARK_THEME } from 'react-native-country-picker-modal'
 import { CountryCode, Country } from '../src/types'
 import { fetchClubsInCountry, updateClubData } from '../actions/queries'
-import Geolocation from '@react-native-community/geolocation';
+import Geolocation from 'react-native-geolocation-service';
 import { useNavigation } from '@react-navigation/core';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
@@ -14,6 +14,7 @@ import uuid from "uuid";
 import Btn from '../components/BackBtn'
 
 import {  uploadPlantation } from '../actions/queries'
+import { Camera } from 'expo-camera'
 
 
 
@@ -70,7 +71,7 @@ export default function Plant() {
     
     const openLibrary = async () => {
         try {
-            const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+            const { status } = await Permissions.askAsync(Permissions.CAMERA);
             if (status === "granted") {
                 const image = await ImagePicker.launchImageLibraryAsync({
                     allowsEditing: false
@@ -133,6 +134,7 @@ export default function Plant() {
             Geolocation.getCurrentPosition(
               //Will give you the current location
                 (position) => {
+                    console.log(position, 'positioj')
                     setLocationStatus('You are Here');
             
                     //getting the Longitude from the location json

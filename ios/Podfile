@@ -11,11 +11,14 @@ target 'Rotary' do
   use_expo_modules!
   config = use_native_modules!
 
+  
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => podfile_properties['expo.jsEngine'] == 'hermes'
-  )
-
+    )
+    
+    pod 'RNFBFirestore', :path => '../node_modules/@react-native-firebase/firestore'
+    # pod 'react-native-location', :path => '../node_modules/react-native-location/react-native-location.podspec'
   # Uncomment to opt-in to using Flipper
   #
   # if !ENV['CI']
